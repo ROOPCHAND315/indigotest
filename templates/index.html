@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigo_Ticket</title>
+    <style>
+       #A{
+         color: rgb(6, 6, 6);
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 id="A">Flight Booking at Low-cost</h1>
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="checkticket">
+                <input type="checkbox" name="checkbox" id="check">
+                <label for="check">One way</label>
+                <input type="checkbox" name="check2">
+                <label for="check2">Round Trip</label>
+                <input type="checkbox" name="check3">
+                <label for="check3">Multi_city</label>
+            </div>
+            <div class="from_to">
+                <div class="fromlable">
+                    <label for="from">From</label> <br>
+                    <input type="text" name="boofrom" id="from">
+                </div>
+               <div class="tolable">
+                <label for="to">To</label><br>
+                <input type="text" name="bookTo" id="to">
+               </div>
+               <div class="cal">
+                 <label for="calender">Departure Date</label><br>
+                 <input type="date" name="dep_date" id="dep">
+               </div>
+            </div>
+            <button type="submit" href="/">Submit</button>
+        </form>
+        <div class="getdata">
+            <form action="" method="GET">
+                {% for x in ticket %}
+                {{x.bookid}}
+                {{x.boofrom}}
+                {{x.bookTo}}
+                {{x.dep_date}}
+                <br>
+                {% endfor %}   
+                <button type="submit" href="/">Get</button>
+            </form>
+
+        </div>
+    </div>
+    
+</body>
+</html>
