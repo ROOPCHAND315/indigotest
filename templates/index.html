@@ -25,9 +25,48 @@
             flex-direction: row;
             border: 1px solid grey;
             border-radius: 5px;
+            box-shadow: 2px 2px gray;
             background-color: rgb(245, 236, 220);
             gap: 100px;
+            padding: 10px 15px;
         }
+        .tolable label{
+            color: gray;
+        }
+        .fromlable label{
+            color: gray;
+        }
+        .cal{
+            color: gray;
+        }
+        #P button{
+            display: inline;
+            background-color: rgb(11, 155, 199);
+            color: aqua;
+            padding: 5px 10px;
+            border-radius: 12px;
+            width: 120px;
+        }
+        .getdata form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .getdata button{
+            background-color: rgb(189, 223, 189);
+            color: rgb(209, 74, 74);
+            padding: 5px 15px;
+            border-radius: 12px;
+
+        }
+        .getoutput{
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            border: 2px solid gray;
+        }
+    
 
     </style>
 </head>
@@ -60,18 +99,46 @@
                  <input type="date" name="dep_date" id="dep">
                </div>
             </div>
-            <button type="submit" href="/">Submit</button>
+            <div class="from_to">
+                <div>
+                    <input type="text" name="" placeholder="Add return trip" id="addreturn">
+                </div>
+                <div class="tolable">
+                    <label for="pass">Passenger Extra seat</label><br>
+                    <input type="number" name="bookTo" id="pass">
+                </div>
+                <div class="tolable">
+                    <label for="pass">Pay in(currency)</label><br>
+                    <label for="pass">Indian Rupees</label><br>
+                </div>
+            </div>
+            <button type="submit" href="/">Book Ticket</button>
         </form>
         <div class="getdata">
             <form action="" method="GET">
-                {% for x in ticket %}
-                {{x.bookid}}
-                {{x.boofrom}}
-                {{x.bookTo}}
-                {{x.dep_date}}
-                <br>
-                {% endfor %}   
                 <button type="submit" href="/">Show Ticket</button>
+                <br>
+                <div class="getoutput">
+                <table>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Dep_Date</th>
+                    </tr>
+                    {% for x in ticket %}
+                    <tr>
+                        <td>{{x.boofrom}}</td>
+                        <td>{{x.bookTo}}</td>
+                        <td>{{x.dep_date}}</td>
+                    </tr>
+                    {% endfor %} 
+                   
+                </table>
+               
+                
+                </div>
+            
+                
             </form>
 
         </div>
