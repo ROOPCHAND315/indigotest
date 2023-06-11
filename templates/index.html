@@ -6,9 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indigo_Ticket</title>
     <style>
-       #A{
-         color: rgb(6, 6, 6);
-       }
+        .container{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(217, 215, 212);
+        justify-content: center;
+        align-items: center;
+        
+        }
+        #P{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+       
+        }
+        .from_to{
+            display: flex;
+            flex-direction: row;
+            border: 1px solid grey;
+            border-radius: 5px;
+            background-color: rgb(245, 236, 220);
+            gap: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -16,7 +36,7 @@
         <div>
             <h1 id="A">Flight Booking at Low-cost</h1>
         </div>
-        <form action="" method="POST">
+        <form action="" method="POST" id="P">
             {% csrf_token %}
             <div class="checkticket">
                 <input type="checkbox" name="checkbox" id="check">
@@ -51,7 +71,7 @@
                 {{x.dep_date}}
                 <br>
                 {% endfor %}   
-                <button type="submit" href="/">Get</button>
+                <button type="submit" href="/">Show Ticket</button>
             </form>
 
         </div>
